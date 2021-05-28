@@ -10,8 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/firebase": "^7.5.0",
     "aos": "^2.3.4",
     "core-js": "^3.9.1",
+    "firebase": "^8.6.3",
     "nuxt": "^2.15.3",
     "vue-responsive-video-background-player": "1.2.2"
   },

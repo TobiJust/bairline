@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="my-16 ">
     <v-row>
       <v-dialog
         content-class="elevation-0"
@@ -9,7 +9,7 @@
         class="dialog"
       >
         <v-carousel v-model="model" hide-delimiters>
-          <v-carousel-item v-for="(n, i) in images" :key="i" :src="n">
+          <v-carousel-item v-for="(n, i) in images" :key="i" :src="n.url">
           </v-carousel-item>
         </v-carousel>
         <transition name="fade">
@@ -24,7 +24,7 @@
       </v-col>
       <v-col
         v-for="(n, index) in images"
-        :key="index"
+        :key="n.path"
         class="d-flex child-flex"
         :cols="$vuetify.breakpoint.smAndDown ? 6 : 3"
       >
@@ -35,12 +35,12 @@
           max-width="600"
           @click.stop="openDialog(index)"
         >
-          <v-img :aspect-ratio="16 / 9" :lazy-src="n" :src="n">
+          <v-img :aspect-ratio="16 / 9" :src="n.url">
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
                 <v-progress-circular
                   indeterminate
-                  color="grey lighten-5"
+                  color="grey lighten-2"
                 ></v-progress-circular>
               </v-row>
             </template>
@@ -52,10 +52,13 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+
+import { mapGetters, mapState } from "vuex";
 export default Vue.extend({
   data() {
     return {
-      images: [
+      images2: [],
+      images3: [
         "https://via.placeholder.com/150",
         "https://via.placeholder.com/300",
         "https://via.placeholder.com/400",
@@ -97,10 +100,18 @@ export default Vue.extend({
       model: 0
     };
   },
+  computed: {
+    ...mapGetters({
+      images: "images/galleryImages"
+    })
+  },
   created() {
     setTimeout(() => {
       this.dialog = false;
     }, 10);
+  },
+  mounted() {
+    this.getGalleryImages();
   },
   methods: {
     openDialog(index: number) {
@@ -118,6 +129,35 @@ export default Vue.extend({
       if (this.model > this.images.length - 1) {
         this.model = 0;
       }
+    },
+    getGalleryImages() {
+      var imagesRef = this.$fire.storage.ref().child("gallery");
+      imagesRef
+        .listAll()
+        .then(res => {
+          // this.$store.dispatch(
+          //   "images/setGalleryImages",
+          //   res.items.map(item => ({
+          //     path: item.fullPath,
+          //     url: item.getDownloadURL()
+          //   }))
+          // );
+
+          Promise.all(res.items.map(item => item.getDownloadURL())).then(
+            contents => {
+              this.$store.dispatch(
+                "images/setGalleryImages",
+                contents.map(function(content, i) {
+                  return { url: content, path: res.items[i].fullPath };
+                })
+              );
+            }
+          );
+        })
+
+        .catch(function(error) {
+          // Uh-oh, an error occurred!
+        });
     }
   }
 });
