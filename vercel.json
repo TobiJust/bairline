@@ -5,7 +5,7 @@
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder@0.21.2",
       "config": {
-        "serverFiles": ["package.json"]
+        "serverFiles": ["package.json", "vuetify/es5/util/colors"]
       }
     }
   ]
