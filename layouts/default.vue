@@ -15,7 +15,7 @@
             $vuetify.breakpoint.mdAndDown && $route.path != '/'
         }"
       >
-        <nuxt-link to="/">
+        <nuxt-link to="/" aria-label="Bairline">
           <BairlineLogo ref="logo" />
         </nuxt-link>
       </div>
