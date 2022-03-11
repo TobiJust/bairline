@@ -15,7 +15,10 @@
             $vuetify.breakpoint.mdAndDown && $route.path != '/'
         }"
       >
-        <nuxt-link to="/" aria-label="Bairline">
+        <nuxt-link
+          to="/"
+          aria-label="Bairline"
+        >
           <BairlineLogo ref="logo" />
         </nuxt-link>
       </div>
@@ -32,7 +35,7 @@ export default {
   data() {
     return {
       showLogoInNavbar: true,
-      runner: ""
+      runner: "",
     };
   },
   watch: {
@@ -47,13 +50,13 @@ export default {
         }
       },
       deep: true,
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     setTimeout(() => {
       AOS.init({
-        duration: 1000
+        duration: 1000,
       });
     }, 1000);
     window.addEventListener("scroll", this.handleScroll);
@@ -61,13 +64,13 @@ export default {
   updated() {
     setTimeout(() => {
       AOS.init({
-        duration: 1000
+        duration: 1000,
       });
     }, 1000);
   },
   methods: {
     handleScroll() {
-      const maxBackgroundSize = window.innerHeight / 1.5;
+      const maxBackgroundSize = window.innerHeight / 2;
 
       let scrollY = window.scrollY;
       let scaleValue = 1 / (scrollY / maxBackgroundSize + 1);
@@ -86,21 +89,21 @@ export default {
     },
     sanitizeTitleName(title) {
       title = title.split("/").pop();
-      title = title.replace(/-([a-z])/g, function(g) {
+      title = title.replace(/-([a-z])/g, function (g) {
         return " " + g[1].toUpperCase();
       });
       title = title.charAt(0).toUpperCase() + title.slice(1);
       return decodeURI(title);
-    }
+    },
   },
   head() {
     return {
       titleTemplate:
         this.$route.path !== "/"
           ? `${this.sanitizeTitleName(this.$route.fullPath)} | %s`
-          : "%s"
+          : "%s",
     };
-  }
+  },
 };
 </script>
 <style lang="scss">

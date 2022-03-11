@@ -8,12 +8,26 @@
       app
       :light="['offer', 'contact', 'aircraft'].includes($route.name)"
     >
-      <nuxt-link to="/" v-if="$route.path !== '/'">
+      <nuxt-link
+        to="/"
+        v-if="$route.path !== '/'"
+      >
         <BairlineLogo class="header_logo" />
       </nuxt-link>
       <v-spacer />
-      <v-btn plain text :ripple="false" to="/offer" nuxt>Charter</v-btn>
-      <v-menu bottom offset-y open-on-hover light>
+      <v-btn
+        plain
+        text
+        :ripple="false"
+        to="/offer"
+        nuxt
+      >Charter</v-btn>
+      <v-menu
+        bottom
+        offset-y
+        open-on-hover
+        light
+      >
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             plain
@@ -39,13 +53,29 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn plain text :ripple="false" to="/aircraft-management" nuxt>
-        Aircraft Management
+      <v-btn
+        plain
+        text
+        :ripple="false"
+        :to="{ name: 'team' }"
+        nuxt
+      >
+        Team
       </v-btn>
-      <v-btn plain text :ripple="false" :to="{ name: 'gallery' }" nuxt>
+      <v-btn
+        plain
+        text
+        :ripple="false"
+        :to="{ name: 'gallery' }"
+        nuxt
+      >
         Gallery
       </v-btn>
-      <v-btn plain text disabled></v-btn>
+      <v-btn
+        plain
+        text
+        disabled
+      ></v-btn>
     </v-app-bar>
     <v-btn
       fab
@@ -76,14 +106,14 @@ export default {
       showNavbar: true,
       lastScrollPosition: 0,
       fab: false,
-      planes: planes
+      planes: planes,
     };
   },
   computed: {
     // map `this.user` to `this.$store.getters.user`
     ...mapGetters({
-      user: "user"
-    })
+      user: "user",
+    }),
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
@@ -101,8 +131,8 @@ export default {
       } else {
         this.navbarBackground = "transparent";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -5,8 +5,14 @@
       class="text-center"
     >
       <v-container class="fill-height black--text">
-        <v-row align="center" class="text-left">
-          <v-col cols="4" class="offset-2">
+        <v-row
+          align="center"
+          class="text-left"
+        >
+          <v-col
+            cols="4"
+            class="offset-2"
+          >
             <h1
               class="title my-8"
               data-aos="zoom-in"
@@ -30,17 +36,30 @@
         </v-row>
       </v-container>
     </v-parallax>
-    <v-container class="contact my-16" id="contact">
-      <v-row justify="space-around" class="my-8">
-        <v-col cols="12" md="6" class="d-flex flex-column">
+    <v-container
+      class="contact my-16"
+      id="contact"
+    >
+      <v-row
+        justify="space-around"
+        class="my-8"
+      >
+        <v-col
+          cols="12"
+          md="6"
+          class="d-flex flex-column"
+        >
           <h1 class="mb-8">Book Your Next Private Jet Charter Today</h1>
           <div>
-            Whether for private charter, aircraft management, or the acquisition
-            or brokerage of an aircraft, our team can make your experience in
-            private Aviation exceptional. Please feel free to contact us
-            directly in the way you feel most comfortable.
+            Whether private leisure, business trip or brokerage of an aircraft,
+            our team can make your experience in Private Aviation exceptional.
+            Please feel free to contact us directly in the way you feel most comfortable.
           </div>
-          <v-row align="center" justify="center" class="flex-column my-2">
+          <v-row
+            align="center"
+            justify="center"
+            class="flex-column my-2"
+          >
             <div class="text-center">
               <v-btn
                 class="ma-2"
@@ -66,7 +85,10 @@
           </v-row>
         </v-col>
         <v-divider vertical></v-divider>
-        <v-col cols="12" md="6">
+        <v-col
+          cols="12"
+          md="6"
+        >
           <div>
             <iframe
               width="800"

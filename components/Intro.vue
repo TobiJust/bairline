@@ -1,37 +1,45 @@
 <template>
-  <v-container class="intro" id="intro">
+  <v-container
+    class="intro"
+    id="intro"
+  >
     <v-row
       align="center"
       justify="space-around"
       class="text-center fill-height"
     >
-      <v-col cols="12" md="6">
-        With a concept made in Bavaria, Bairline represents what Business
-        Aviation is meant to be! You want to go on holiday or just need to get
-        to your next business meeting? You are looking for an intercontinental
-        flight or the quickest way across Europe? We offer the right aircraft
-        for any of your demands.
+      <v-col
+        cols="12"
+        md="6"
+      >
+        Bairline Fluggesellschaft mbH & Co. KG started operation in 2007.
+        The passion for aviation turned into a fast growing company with a wide portfolio of aircraft,
+        covering all of our clients needs. Since the year of introduction, Bairline has proven itself
+        as a competitive player in the Business Aviation market and is well-known by passengers and
+        brokers for its personality, flexibility and state of the art aircraft.
       </v-col>
       <v-col cols="12">
         <v-divider class="divider"></v-divider>
         <h1 class="title">Shortest communication line in the industry</h1>
         <v-divider class="divider"></v-divider>
       </v-col>
-      <v-col cols="12">
-        <v-btn large to="/offer" nuxt>Learn more</v-btn>
-      </v-col>
-      <v-col cols="12" md="8">
-        <v-expansion-panels flat v-model="panel">
+      <v-col
+        cols="12"
+        md="8"
+      >
+        <v-expansion-panels
+          flat
+          v-model="panel"
+        >
           <v-expansion-panel class="transparent">
             <v-expansion-panel-header
               hide-actions
-              class="text-center hover"
-              :class="{
-                'justify-end': panel === 0,
-                'justify-center': panel !== 0
-              }"
+              class="text-center"
             >
-              {{ panel === 0 ? "Close" : "Read more" }}
+              <div>
+                <v-btn large>{{ panel === 0 ? "Close" : "Read more" }}</v-btn>
+              </div>
+
             </v-expansion-panel-header>
             <v-expansion-panel-content class="text-justify">
               <p>
@@ -67,10 +75,10 @@ import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
-      panel: undefined
+      panel: undefined,
     };
   },
-  methods: {}
+  methods: {},
 });
 </script>
 

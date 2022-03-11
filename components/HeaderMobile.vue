@@ -1,8 +1,17 @@
 <template>
   <div class="nav">
-    <v-app-bar flat fixed hide-on-scroll color="transparent" dark>
+    <v-app-bar
+      flat
+      fixed
+      hide-on-scroll
+      color="transparent"
+      dark
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title v-show="!drawer" class="nav__title">
+      <v-toolbar-title
+        v-show="!drawer"
+        class="nav__title"
+      >
         Bairline
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -26,15 +35,25 @@
       </template>
 
       <v-divider></v-divider>
-      <v-list nav dense>
+      <v-list
+        nav
+        dense
+      >
         <v-list-item-group
           v-model="group"
           active-class="white--text text--accent-4"
         >
-          <v-list-item to="/" color="primary" nuxt>
+          <v-list-item
+            to="/"
+            color="primary"
+            nuxt
+          >
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
-          <v-list-item to="/offer" nuxt>
+          <v-list-item
+            to="/offer"
+            nuxt
+          >
             <v-list-item-title>Charter</v-list-item-title>
           </v-list-item>
           <v-list-group no-action>
@@ -51,13 +70,16 @@
               <v-list-item-title>{{ plane.name }}</v-list-item-title>
             </v-list-item>
           </v-list-group>
-          <v-list-item to="/aircraft-management" nuxt>
-            <v-list-item-title>Aircraft Management</v-list-item-title>
-          </v-list-item>
-          <v-list-item :to="{ name: 'gallery' }" nuxt>
+          <v-list-item
+            :to="{ name: 'gallery' }"
+            nuxt
+          >
             <v-list-item-title>Gallery</v-list-item-title>
           </v-list-item>
-          <v-list-item to="/contact" nuxts>
+          <v-list-item
+            to="/contact"
+            nuxt
+          >
             <v-list-item-title>Contact</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
@@ -71,10 +93,10 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
-    planes: planes
+    planes: planes,
   }),
   methods: {},
-  watch: {}
+  watch: {},
 };
 </script>
 <style lang="scss" scoped>

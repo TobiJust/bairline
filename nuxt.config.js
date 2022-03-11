@@ -11,11 +11,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Bairline Fluggesellschaft GmbH - Aircraft Charter Service' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/bairline_favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Quicksand&family=Lato&display=swap' },
+      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Quicksand&family=Lato&display=swap' },
     ]
   },
 
@@ -37,6 +37,8 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    // https://google-fonts.nuxtjs.org
+    '@nuxtjs/google-fonts'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -82,6 +84,15 @@ export default {
       auth: true,
       storage: true,
     }
+  },
+
+  googleFonts: {
+    families: {
+      Quicksand: true,
+      Lato: true,
+    },
+    display: 'swap',
+    download: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

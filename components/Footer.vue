@@ -7,8 +7,8 @@
         <v-btn plain text :to="{ name: 'aircraft' }" nuxt>
           Aircraft
         </v-btn>
-        <v-btn plain text to="/aircraft-management" nuxt>
-          Aircraft Management
+        <v-btn plain text :to="{ name: 'team' }" nuxt>
+          Team
         </v-btn>
         <v-btn plain text :to="{ name: 'gallery' }" nuxt>
           Gallery
@@ -25,16 +25,6 @@
           class="text-caption"
         >
           Terms & Conditions
-        </v-btn>
-        <v-btn
-          text
-          plain
-          href="/downloads/Menu List.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-caption"
-        >
-          Catering
         </v-btn>
       </v-col>
       <v-col cols="8">
