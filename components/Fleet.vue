@@ -2,30 +2,22 @@
   <div>
     <v-parallax
       :src="require('~/assets/images/window.jpg')"
-      :height="['aircraft'].includes($route.name) ? auto : 400"
+      :height="!['aircraft'].includes($route.name) ? 400 : 500"
       class="text-center"
     >
-      <h1 class="text-h2 black--text font-weight-light">Meet our fleet</h1>
+      <h1 class="text-h2 font-weight-light title">Meet our fleet</h1>
     </v-parallax>
     <v-container class="my-16">
-      <v-row
-        justify="space-around"
-        class="text-center my-8"
-      >
-        <v-col
-          cols="12"
-          md="6"
-        >
-          With a concept made in Bavaria, Bairline represents what Business Aviation is meant to be!
-          You want to go on holiday or just need to get to your next business meeting?
-          You are looking for an intercontinental flight or the quickest way across Europe?
-          We offer the right aircraft for any of your demands.
+      <v-row justify="space-around" class="text-center my-8">
+        <v-col cols="12" md="6" class="text-justify">
+          With a concept made in Bavaria, Bairline represents what Business
+          Aviation is meant to be! You want to go on holiday or just need to get
+          to your next business meeting? You are looking for an intercontinental
+          flight or the quickest way across Europe? We offer the right aircraft
+          for any of your demands.
         </v-col>
       </v-row>
-      <v-row
-        justify="space-around"
-        class="my-8"
-      >
+      <v-row justify="space-around" class="my-8">
         <v-col
           v-for="plane in Object.values(planes)"
           :key="plane.name"
@@ -35,6 +27,8 @@
           <v-card
             class="mx-auto my-12"
             max-width="800"
+            :to="{ name: 'plane-id', params: { id: plane.name } }"
+            nuxt
           >
             <v-img :src="plane.entryImage"> </v-img>
 
@@ -43,7 +37,7 @@
               {{ plane.tagline }}
             </v-card-subtitle>
 
-            <v-card-text>
+            <v-card-text class="text-justify">
               {{ plane.content }}
             </v-card-text>
 
@@ -62,19 +56,12 @@
 
             <v-card-actions>
               <v-btn
-                color="teal lighten-2"
-                text
                 :to="{ name: 'plane-id', params: { id: plane.name } }"
                 nuxt
               >
                 Read more
               </v-btn>
-              <v-btn
-                color="teal lighten-2"
-                text
-                to="/contact"
-                nuxt
-              >
+              <v-btn to="/contact" nuxt class="grey darken-2">
                 Plan your trip
               </v-btn>
             </v-card-actions>
@@ -96,4 +83,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.title {
+  color: #29323c;
+}
+</style>

@@ -4,15 +4,9 @@
       :src="require('~/assets/images/window.jpg')"
       class="text-center"
     >
-      <v-container class="fill-height black--text">
-        <v-row
-          align="center"
-          class="text-left"
-        >
-          <v-col
-            cols="4"
-            class="offset-2"
-          >
+      <v-container class="fill-height">
+        <v-row align="center" class="text-left">
+          <v-col cols="4" class="offset-2">
             <h1
               class="title my-8"
               data-aos="zoom-in"
@@ -28,7 +22,7 @@
               data-aos="fade-up"
               data-aos-delay="3000"
               data-aos-duration="2000"
-              light
+              color="#29323c"
             >
               Contact us
             </v-btn>
@@ -36,70 +30,80 @@
         </v-row>
       </v-container>
     </v-parallax>
-    <v-container
-      class="contact my-16"
-      id="contact"
-    >
-      <v-row
-        justify="space-around"
-        class="my-8"
-      >
-        <v-col
-          cols="12"
-          md="6"
-          class="d-flex flex-column"
-        >
+    <v-container class="contact my-16" id="contact">
+      <v-row align="center" justify="space-around" class="my-8 text-center">
+        <v-col cols="8" class="d-flex flex-column">
           <h1 class="mb-8">Book Your Next Private Jet Charter Today</h1>
-          <div>
+          <div class="text-justify">
             Whether private leisure, business trip or brokerage of an aircraft,
             our team can make your experience in Private Aviation exceptional.
-            Please feel free to contact us directly in the way you feel most comfortable.
+            Please feel free to contact us directly in the way you feel most
+            comfortable.
           </div>
-          <v-row
-            align="center"
-            justify="center"
-            class="flex-column my-2"
-          >
-            <div class="text-center">
-              <v-btn
-                class="ma-2"
-                outlined
-                x-large
-                text
-                href="mailto:sales@bairline.at"
-              >
-                <v-icon left>mdi-email</v-icon> sales@bairline.at
-              </v-btn>
-            </div>
-            <div class="text-center">
-              <v-btn
-                class="ma-2"
-                outlined
-                x-large
-                text
-                href="tel:+49 (0)30 8631 8972"
-              >
-                <v-icon left>mdi-phone</v-icon> +49 (0)30 8631 8972
-              </v-btn>
-            </div>
-          </v-row>
         </v-col>
-        <v-divider vertical></v-divider>
-        <v-col
-          cols="12"
-          md="6"
-        >
-          <div>
-            <iframe
-              width="800"
-              height="500"
-              frameborder="0"
-              src="https://www.bing.com/maps/embed?h=500&w=800&cp=47.78940541796653~12.995873560504894&lvl=15&typ=d&sty=r&src=SHELL&FORM=MBEDV8"
-              scrolling="no"
-              class="map"
+      </v-row>
+      <v-row align="start" justify="center" class="text-center my-12">
+        <v-col cols="12" md="4" class="avatar">
+          <a
+            href="tel:+49 (0)30 8631 8972"
+            class="text-decoration-none white--text"
+          >
+            <v-avatar
+              size="128"
+              color="red lighten-2"
+              data-aos="zoom-in-up"
+              data-aos-once="true"
             >
-            </iframe>
-          </div>
+              <v-icon size="85">mdi-phone </v-icon>
+            </v-avatar>
+            <h2 class="text-uppercase font-weight-light my-4">Phone</h2>
+            <div class="text-button">+49 (0)30 8631 8972</div>
+          </a>
+        </v-col>
+        <v-col cols="12" md="4" class="avatar">
+          <a
+            href="https://www.google.com/maps?hl=en&daddr=Innsbrucker%20Bundesstraße%20107,5020%20Salzburg"
+            class="text-decoration-none white--text"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <v-avatar
+              size="128"
+              color="red lighten-2"
+              data-aos="zoom-in-up"
+              data-aos-delay="1000"
+              data-aos-once="true"
+            >
+              <v-icon size="85">mdi-map-marker </v-icon>
+            </v-avatar>
+            <h2 class="text-uppercase font-weight-light my-4">Address</h2>
+            <div class="text-center text-body-1">
+              <span class="font-weight-bold">
+                Bairline Fluggesellschaft mbH & Co. KG</span
+              >
+              <br />
+              Innsbrucker Bundesstraße 107 <br />
+              5020 Salzburg, Austria
+            </div>
+          </a>
+        </v-col>
+        <v-col cols="12" md="4" class="avatar">
+          <a
+            href="mailto:sales@bairline.at"
+            class="text-decoration-none white--text"
+          >
+            <v-avatar
+              size="128"
+              color="red lighten-2"
+              data-aos="zoom-in-up"
+              data-aos-delay="2000"
+              data-aos-once="true"
+            >
+              <v-icon size="85">mdi-message </v-icon>
+            </v-avatar>
+            <h2 class="text-uppercase font-weight-light my-4">Email</h2>
+            <div class="text-button">sales@bairline.at</div>
+          </a>
         </v-col>
       </v-row>
       <div class="text-center my-12">
@@ -142,9 +146,26 @@ export default {};
   font-size: 5rem !important;
   line-height: 5rem;
   text-transform: uppercase;
+  color: #29323c;
+}
+.avatar:hover .v-avatar {
+  animation: Scale 0.5s linear;
+  animation-fill-mode: both;
 }
 
 .map {
   max-width: 100%;
+}
+
+@keyframes Scale {
+  0% {
+    transform: scale(1);
+  }
+  85% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 </style>

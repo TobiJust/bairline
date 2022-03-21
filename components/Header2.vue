@@ -6,28 +6,20 @@
       hide-on-scroll
       :color="navbarBackground"
       app
-      :light="['offer', 'contact', 'aircraft'].includes($route.name)"
+      :light="
+        ['contact', 'aircraft', 'catering'].includes($route.name) ||
+        (['offer'].includes($route.name) && !$store.state.images.offerToggle)
+      "
+      :dark="['offer'].includes($route.name) && $store.state.images.offerToggle"
     >
-      <nuxt-link
-        to="/"
-        v-if="$route.path !== '/'"
-      >
+      <nuxt-link to="/" v-if="$route.path !== '/'">
         <BairlineLogo class="header_logo" />
       </nuxt-link>
       <v-spacer />
-      <v-btn
-        plain
-        text
-        :ripple="false"
-        to="/offer"
-        nuxt
-      >Charter</v-btn>
-      <v-menu
-        bottom
-        offset-y
-        open-on-hover
-        light
+      <v-btn plain text :ripple="false" to="/offer" nuxt :dark="buttonColor"
+        >Charter</v-btn
       >
+      <v-menu bottom offset-y open-on-hover light>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             plain
@@ -37,6 +29,7 @@
             v-bind="attrs"
             v-on="on"
             nuxt
+            :dark="buttonColor"
           >
             Aircraft
           </v-btn>
@@ -59,6 +52,7 @@
         :ripple="false"
         :to="{ name: 'team' }"
         nuxt
+        :dark="buttonColor"
       >
         Team
       </v-btn>
@@ -68,14 +62,11 @@
         :ripple="false"
         :to="{ name: 'gallery' }"
         nuxt
+        :dark="buttonColor"
       >
         Gallery
       </v-btn>
-      <v-btn
-        plain
-        text
-        disabled
-      ></v-btn>
+      <v-btn plain text disabled></v-btn>
     </v-app-bar>
     <v-btn
       fab
@@ -83,6 +74,7 @@
       fixed
       top
       right
+      dark
       color="red"
       to="/contact"
       nuxt
@@ -103,6 +95,7 @@ export default {
   data() {
     return {
       navbarBackground: "transparent",
+      buttonColor: "",
       showNavbar: true,
       lastScrollPosition: 0,
       fab: false,
@@ -111,9 +104,7 @@ export default {
   },
   computed: {
     // map `this.user` to `this.$store.getters.user`
-    ...mapGetters({
-      user: "user",
-    }),
+    ...mapGetters("images", ["offerToggle"]),
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
@@ -128,8 +119,10 @@ export default {
         document.documentElement.scrollTop > 100
       ) {
         this.navbarBackground = "#29323c";
+        this.buttonColor = true;
       } else {
         this.navbarBackground = "transparent";
+        this.buttonColor = false;
       }
     },
   },
@@ -152,6 +145,9 @@ export default {
   &:hover {
     transform: scale(1.2) !important;
   }
+}
+.foo {
+  color: white !important;
 }
 
 @keyframes appear {

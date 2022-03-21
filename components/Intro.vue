@@ -11,6 +11,7 @@
       <v-col
         cols="12"
         md="6"
+        class="text-justify"
       >
         Bairline Fluggesellschaft mbH & Co. KG started operation in 2007.
         The passion for aviation turned into a fast growing company with a wide portfolio of aircraft,

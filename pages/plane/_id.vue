@@ -1,18 +1,8 @@
 <template>
   <div>
-    <v-parallax
-      :src="plane.coverImage"
-      height="600"
-      class="text-center"
-    >
-      <v-row
-        align="center"
-        justify="center"
-      >
-        <v-col
-          cols="2"
-          class="align-self-start mt-16 text-left"
-        >
+    <v-parallax :src="plane.coverImage" height="600" class="text-center">
+      <v-row align="center" justify="center">
+        <v-col cols="2" class="align-self-start mt-16 text-left">
           <v-btn
             x-small
             text
@@ -27,10 +17,7 @@
         <v-col cols="8">
           <h1 class="display-3">{{ plane.name }}</h1>
         </v-col>
-        <v-col
-          cols="2"
-          class="align-self-start mt-16 text-right"
-        >
+        <v-col cols="2" class="align-self-start mt-16 text-right">
           <v-btn
             x-small
             text
@@ -44,54 +31,65 @@
         </v-col>
       </v-row>
     </v-parallax>
-    <v-container
-      class="my-16 text-center"
-      id="plane"
-    >
-      <v-row
-        align="center"
-        justify="center"
-      >
+    <v-container class="my-16 text-center" id="plane">
+      <v-row align="center" justify="center">
         <v-col cols="12">
           <h1>{{ plane.tagline }}</h1>
           <v-divider class="ma-4"></v-divider>
         </v-col>
-        <v-col
-          cols="12"
-          md="6"
-        >
+        <v-col cols="12" md="6">
           {{ plane.content }}
         </v-col>
         <v-col cols="12">
-          <v-btn
-            v-if="plane.tourUrl"
-            color="red"
-            text
-            :href="plane.tourUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Virtual <v-icon
-              medium
-              class="pulse"
-            >mdi-rotate-3d</v-icon> Tour
-          </v-btn>
+          <v-dialog v-model="externalLink" width="500">
+            <template v-slot:activator="{ on }">
+              <v-btn
+                v-if="plane.tourUrl"
+                color="red"
+                text
+                class="external-link no-text-transform"
+                height="auto"
+                v-on="on"
+              >
+                <div class="pa-1">
+                  <large style="display: block">
+                    Virtual
+                    <v-icon medium class="pulse"> mdi-rotate-3d</v-icon> Tour
+                  </large>
+                  <small>[External Link]</small>
+                </div>
+              </v-btn>
+            </template>
+            <v-card light>
+              <v-card-title class="text-subtitle-1">
+                You are now leaving the Bairline website. When you click on
+                'Okay' you will leave the website and will be redirected to
+                another site.
+              </v-card-title>
+              <v-divider></v-divider>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn @click="externalLink = false"> Cancel </v-btn>
+                <v-btn
+                  color="grey lighten-1"
+                  @click="externalLink = false"
+                  :href="plane.tourUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Okay
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-col>
       </v-row>
-      <v-row
-        align="center"
-        justify="center"
-      >
-        <v-col
-          cols="12"
-          md="9"
-          v-if="plane.floorplan"
-        >
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <v-img :src="!dayNight ? plane.floorplan_night : plane.floorplan"></v-img>
+      <v-row align="center" justify="center">
+        <v-col cols="12" md="9" v-if="plane.floorplan">
+          <transition name="fade" mode="out-in">
+            <v-img
+              :src="!dayNight ? plane.floorplan_night : plane.floorplan"
+            ></v-img>
           </transition>
           <div
             class="d-flex justify-center align-center"
@@ -117,17 +115,8 @@
           <v-divider class="ma-4"></v-divider>
         </v-col>
       </v-row>
-      <v-row
-        justify="center"
-        class="px-16"
-      >
-        <v-col
-          cols="6"
-          md="3"
-          v-for="(item, i) in icons"
-          :key="i"
-          class="my-4"
-        >
+      <v-row justify="center" class="px-16">
+        <v-col cols="6" md="3" v-for="(item, i) in icons" :key="i" class="my-4">
           <v-sheet
             class="d-flex flex-column overline fill-height"
             color="transparent"
@@ -140,27 +129,17 @@
           </v-sheet>
         </v-col>
       </v-row>
-      <v-row
-        align="center"
-        justify="center"
-        v-if="plane.rangeMap"
-      >
+      <v-row align="center" justify="center" v-if="plane.rangeMap">
         <v-col cols="12">
           <h2>Range Map</h2>
           <v-divider class="ma-4"></v-divider>
         </v-col>
-        <v-col
-          cols="10"
-          md="6"
-        >
+        <v-col cols="10" md="6">
           <v-img :src="plane.rangeMap"></v-img>
         </v-col>
       </v-row>
 
-      <v-row
-        align="center"
-        justify="center"
-      >
+      <v-row align="center" justify="center">
         <v-col cols="12">
           <h2>Downloads</h2>
           <v-divider class="ma-4"></v-divider>
@@ -173,57 +152,34 @@
           >
             Fact Sheet <v-icon small>mdi-download</v-icon>
           </v-btn>
-          <v-btn
-            text
-            to="/catering"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <v-btn text to="/catering" target="_blank" rel="noopener noreferrer">
             Catering <v-icon small>mdi-open-in-new</v-icon>
           </v-btn>
         </v-col>
       </v-row>
     </v-container>
 
-    <v-container
-      fluid
-      class="gallery"
-    >
+    <v-container fluid class="gallery">
       <v-row
         align="center"
         justify="center"
         v-if="plane.gallery && plane.gallery.length"
       >
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-carousel
-            cycle
-            hide-delimiters
-            show-arrows-on-hover
-          >
+        <v-col cols="12" md="9">
+          <v-carousel cycle hide-delimiters show-arrows-on-hover>
             <v-carousel-item
               v-for="(item, i) in plane.gallery"
               :key="i"
               :src="item"
               @click="openDialog(i)"
-              style="cursor: pointer;"
+              style="cursor: pointer"
             ></v-carousel-item>
           </v-carousel>
         </v-col>
       </v-row>
-      <v-dialog
-        v-model="dialog"
-        max-width="900"
-        overlay-opacity="0.99"
-      >
+      <v-dialog v-model="dialog" max-width="900" overlay-opacity="0.99">
         <div>
-          <v-carousel
-            hide-delimiters
-            show-arrows-on-hover
-            v-model="model"
-          >
+          <v-carousel hide-delimiters show-arrows-on-hover v-model="model">
             <v-carousel-item
               v-for="(item, i) in plane.gallery"
               :key="i"
@@ -232,12 +188,7 @@
             </v-carousel-item>
           </v-carousel>
           <transition name="fade">
-            <v-btn
-              v-if="dialog"
-              icon
-              class="close"
-              @click="dialog = false"
-            >
+            <v-btn v-if="dialog" icon class="close" @click="dialog = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </transition>
@@ -256,6 +207,7 @@ export default Vue.extend({
       plane: planes[this.$route.params.id],
       dayNight: true,
       dialog: true,
+      externalLink: false,
       model: 0,
       icons: [
         {
@@ -323,6 +275,9 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
+.external-link small {
+  font-size: 60%;
+}
 .gallery {
   background: #303a46;
 }

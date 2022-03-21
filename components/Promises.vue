@@ -18,6 +18,7 @@
         <v-col
           cols="12"
           md="6"
+          class="text-justify"
         >
           We know that there are hundreds of business jets in all parts of the world.
           But what most companies forget nowadays, is what Business Aviation is really about.
@@ -61,14 +62,12 @@
                     <p class="display-1 text--primary">
                       {{ promise.title }}
                     </p>
-                    <p>
+                    <p class="text-justify">
                       {{ promise.content }}
                     </p>
                   </v-card-text>
                   <v-card-actions class="pt-0">
                     <v-btn
-                      text
-                      color="white accent-4"
                       v-if="promise.link"
                       :to="promise.link"
                       nuxt

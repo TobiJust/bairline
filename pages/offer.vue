@@ -1,13 +1,24 @@
 <template>
-  <v-container fluid class="ma-0 pa-0">
+  <v-container
+    fluid
+    class="ma-0 pa-0"
+  >
     <v-row>
-      <Hero :src="src" :scrollTarget="'#services'" @ended="animationEnd()">
+      <Hero
+        :src="src"
+        :scrollTarget="'#services'"
+        @ended="animationEnd()"
+      >
         Private <br />
         Jet <br />
         Charter
       </Hero>
     </v-row>
-    <v-row align="center" class="text-center" id="services">
+    <v-row
+      align="center"
+      class="text-center"
+      id="services"
+    >
       <v-col cols="12">
         <h1>Private Air Travel Services</h1>
       </v-col>
@@ -17,8 +28,14 @@
       class="text-center"
       :class="{ 'flex-row-reverse': toggle }"
     >
-      <v-col cols="12" md="6">
-        <v-img :src="imageSource" class="ma-8"></v-img>
+      <v-col
+        cols="12"
+        md="6"
+      >
+        <v-img
+          :src="imageSource"
+          class="ma-8"
+        ></v-img>
       </v-col>
       <v-col
         cols="12"
@@ -37,15 +54,29 @@
       </v-col>
     </v-row>
 
-    <v-row align="center" class="text-center">
+    <v-row
+      align="center"
+      class="text-center"
+    >
       <v-col cols="12">
-        <v-btn x-large to="/contact" nuxt>
+        <v-btn
+          x-large
+          to="/contact"
+          nuxt
+        >
           Plan your {{ toggle ? "travel" : "trip" }}
         </v-btn>
       </v-col>
     </v-row>
-    <v-row align="center" class="text-center">
-      <v-col cols="12" md="4" offset-md="1">
+    <v-row
+      align="center"
+      class="text-center"
+    >
+      <v-col
+        cols="12"
+        md="4"
+        offset-md="1"
+      >
         <h4>Our Commitment:</h4>
         <p class="pa-2">
           In addition to our invariable attention to safety and service,
@@ -53,8 +84,15 @@
           private flight solution.
         </p>
       </v-col>
-      <v-divider vertical class="offset-md-1"></v-divider>
-      <v-col cols="12" md="6" class="text-left">
+      <v-divider
+        vertical
+        class="offset-md-1"
+      ></v-divider>
+      <v-col
+        cols="12"
+        md="6"
+        class="text-left"
+      >
         <ul>
           <li>No enrollment fees</li>
           <li>No annual hourly commitments</li>
@@ -75,7 +113,7 @@ export default Vue.extend({
   data() {
     return {
       toggle: false,
-      src: require("~/assets/videos/city.mp4")
+      src: require("~/assets/videos/city.mp4"),
     };
   },
   destroyed() {
@@ -95,28 +133,28 @@ export default Vue.extend({
       } else {
         this.src = require("~/assets/videos/city.mp4");
       }
-      this.$vuetify.theme.dark = this.toggle;
-    }
+    },
   },
   watch: {
     toggle: {
       handler(to, from) {
-        this.$vuetify.theme.dark = !to;
         if (to) {
           this.src = require("~/assets/videos/beach.mp4");
+          this.$store.dispatch("images/toggleOffer", true);
         } else {
           this.src = require("~/assets/videos/city.mp4");
+          this.$store.dispatch("images/toggleOffer", false);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   computed: {
     imageSource() {
       return this.toggle
         ? require("~/assets/images/holiday.jpg")
         : require("~/assets/images/business.jpg");
-    }
-  }
+    },
+  },
 });
 </script>

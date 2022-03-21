@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="my-16 ">
+  <v-container fluid class="my-16">
     <v-row>
       <v-dialog
         content-class="elevation-0"
@@ -9,7 +9,7 @@
         class="dialog"
       >
         <v-carousel v-model="model" hide-delimiters>
-          <v-carousel-item v-for="(n, i) in images" :key="i" :src="n.url">
+          <v-carousel-item v-for="(n, i) in images" :key="i" :src="n">
           </v-carousel-item>
         </v-carousel>
         <transition name="fade">
@@ -24,7 +24,7 @@
       </v-col>
       <v-col
         v-for="(n, index) in images"
-        :key="n.path"
+        :key="index"
         class="d-flex child-flex"
         :cols="$vuetify.breakpoint.smAndDown ? 6 : 3"
       >
@@ -35,7 +35,7 @@
           max-width="600"
           @click.stop="openDialog(index)"
         >
-          <v-img :aspect-ratio="16 / 9" :src="n.url">
+          <v-img :aspect-ratio="16 / 9" :src="n">
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
                 <v-progress-circular
@@ -57,53 +57,15 @@ import { mapGetters, mapState } from "vuex";
 export default Vue.extend({
   data() {
     return {
-      images2: [],
-      images3: [
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/300",
-        "https://via.placeholder.com/400",
-        "https://via.placeholder.com/500",
-        "https://via.placeholder.com/1280x960",
-        "https://via.placeholder.com/1920x1080",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/300",
-        "https://via.placeholder.com/400",
-        "https://via.placeholder.com/500",
-        "https://via.placeholder.com/1280x960",
-        "https://via.placeholder.com/1920x1080",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/300",
-        "https://via.placeholder.com/400",
-        "https://via.placeholder.com/500",
-        "https://via.placeholder.com/1280x960",
-        "https://via.placeholder.com/1920x1080",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/300",
-        "https://via.placeholder.com/400",
-        "https://via.placeholder.com/500",
-        "https://via.placeholder.com/1280x960",
-        "https://via.placeholder.com/1920x1080",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/300",
-        "https://via.placeholder.com/400",
-        "https://via.placeholder.com/500",
-        "https://via.placeholder.com/1280x960",
-        "https://via.placeholder.com/1920x1080",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/300",
-        "https://via.placeholder.com/400",
-        "https://via.placeholder.com/500",
-        "https://via.placeholder.com/1280x960",
-        "https://via.placeholder.com/1920x1080"
-      ],
       dialog: true,
-      model: 0
+      model: 0,
+      images: [],
     };
   },
   computed: {
-    ...mapGetters({
-      images: "images/galleryImages"
-    })
+    // ...mapGetters({
+    //   images: "images/galleryImages",
+    // }),
   },
   created() {
     setTimeout(() => {
@@ -130,11 +92,19 @@ export default Vue.extend({
         this.model = 0;
       }
     },
+    importAll(r: any) {
+      return r.keys().map(r);
+    },
     getGalleryImages() {
+      this.images = this.importAll(
+        require.context("@/assets/gallery/", true, /\.(jpe?g)/)
+      );
+      console.log(this.images);
+
       var imagesRef = this.$fire.storage.ref().child("gallery");
       imagesRef
         .listAll()
-        .then(res => {
+        .then((res) => {
           // this.$store.dispatch(
           //   "images/setGalleryImages",
           //   res.items.map(item => ({
@@ -143,11 +113,11 @@ export default Vue.extend({
           //   }))
           // );
 
-          Promise.all(res.items.map(item => item.getDownloadURL())).then(
-            contents => {
+          Promise.all(res.items.map((item) => item.getDownloadURL())).then(
+            (contents) => {
               this.$store.dispatch(
                 "images/setGalleryImages",
-                contents.map(function(content, i) {
+                contents.map(function (content, i) {
                   return { url: content, path: res.items[i].fullPath };
                 })
               );
@@ -155,11 +125,11 @@ export default Vue.extend({
           );
         })
 
-        .catch(function(error) {
+        .catch(function (error) {
           // Uh-oh, an error occurred!
         });
-    }
-  }
+    },
+  },
 });
 </script>
 <style scoped>

@@ -4,7 +4,7 @@ const planes = {
     tagline: 'The full package for long-range flights',
     content:
       'Take a flight with our technologically most advanced and luxurious jet. The fastest aircraft in its class combined with plenty of space is your best choice for long distance flights.',
-    entryImage: require(`@/assets/web/Gulfstream G500/SL7_4849-Bearbeitet.jpg`),
+    entryImage: require(`@/assets/plane/gulfstreamG500.jpeg`),
     coverImage: require(`@/assets/web/Gulfstream G500/SL7_4804_0-Bearbeitet.jpg`),
     floorplan: require(`@/assets/plane/floorplan_gulfstreamG500_day.png`),
     floorplan_night: require(`@/assets/plane/floorplan_gulfstreamG500_night.png`),
@@ -53,7 +53,7 @@ const planes = {
     tagline: 'The fastest business jet in the world',
     content:
       'You would like to get as fast as possible to your destination? Then this aircraft is definitely the right choice. Flying almost at the speed of sound, the countries below you are changing in no time.',
-    entryImage: require(`@/assets/plane/SLT_0826-Bearbeitet.jpg`),
+    entryImage: require(`@/assets/plane/SLT_0809-Bearbeitet.jpg`),
     coverImage: require(`@/assets/plane/citationX.jpg`),
     floorplan: require(`@/assets/plane/floorplan_citationX.png`),
     floorplan_night: require(`@/assets/plane/floorplan_citationX_night.png`),

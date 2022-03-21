@@ -1,21 +1,70 @@
 <template>
-  <v-container fluid class="footer">
-    <v-row dense justify="center" class="text-center mb-4">
-      <v-col cols="12">
-        <v-btn plain text to="/" nuxt>Home</v-btn>
-        <v-btn plain text to="/offer" nuxt>Charter</v-btn>
-        <v-btn plain text :to="{ name: 'aircraft' }" nuxt>
+  <v-container
+    fluid
+    class="footer"
+  >
+    <v-row
+      dense
+      justify="center"
+      class="text-center mb-4"
+    >
+      <v-col
+        cols="12"
+        class="mb-4"
+      >
+        <v-btn
+          plain
+          text
+          to="/"
+          nuxt
+        >Home</v-btn>
+        <v-btn
+          plain
+          text
+          to="/offer"
+          nuxt
+        >Charter</v-btn>
+        <v-btn
+          plain
+          text
+          :to="{ name: 'aircraft' }"
+          nuxt
+        >
           Aircraft
         </v-btn>
-        <v-btn plain text :to="{ name: 'team' }" nuxt>
+        <v-btn
+          plain
+          text
+          :to="{ name: 'team' }"
+          nuxt
+        >
           Team
         </v-btn>
-        <v-btn plain text :to="{ name: 'gallery' }" nuxt>
+        <v-btn
+          plain
+          text
+          :to="{ name: 'gallery' }"
+          nuxt
+        >
           Gallery
         </v-btn>
-        <v-btn plain text to="/contact" nuxt>Contact</v-btn>
+        <v-btn
+          plain
+          text
+          to="/contact"
+          nuxt
+        >Contact</v-btn>
       </v-col>
       <v-col cols="12">
+        <v-btn
+          text
+          plain
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-caption"
+        >
+          Privacy Policy
+        </v-btn>
         <v-btn
           text
           plain
@@ -30,7 +79,10 @@
       <v-col cols="8">
         <v-divider></v-divider>
       </v-col>
-      <v-col cols="12" class="text-body-2">
+      <v-col
+        cols="12"
+        class="text-body-2"
+      >
         All Rights Reserved © Bairline Fluggesellschaft mbH & Co. KG,
         Innsbrucker Bundesstraße 107, 5020 Salzburg, AT,
         <a
