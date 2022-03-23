@@ -29,7 +29,7 @@
       >
         <v-col cols="12">
           <embed
-            src="/Menu List.pdf"
+            src="/downloads/Menu List.pdf"
             width="100%"
             height="900px"
           />

@@ -2,8 +2,8 @@
   <video-background
     :src="src"
     @ended="$emit('ended')"
-    :loop="false"
-    style="height: 80vh; background: linear-gradient(45deg,#2a4ae430,#29323c)"
+    :loop="true"
+    style="height: 80vh; background: linear-gradient(45deg, #2a4ae430, #29323c)"
   >
     <v-container class="fill-height">
       <v-row align="center" class="text-left">
@@ -37,17 +37,17 @@ import Vue from "vue";
 export default Vue.extend({
   props: {
     src: {
-      type: String
+      type: String,
     },
     scrollTarget: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
-      newSrc: ""
+      newSrc: "",
     };
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>
@@ -55,5 +55,6 @@ export default Vue.extend({
   font-size: 5rem !important;
   line-height: 5rem;
   text-transform: uppercase;
+  text-shadow: 1px 1px black;
 }
 </style>

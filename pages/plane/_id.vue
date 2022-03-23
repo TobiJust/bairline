@@ -1,6 +1,15 @@
 <template>
   <div>
-    <v-parallax :src="plane.coverImage" height="600" class="text-center">
+    <v-parallax
+      :src="plane.coverImage"
+      height="600"
+      class="text-center"
+      :class="{
+        'translate-image': ['Gulfstream G500', 'Citation X'].includes(
+          $route.params.id
+        ),
+      }"
+    >
       <v-row align="center" justify="center">
         <v-col cols="2" class="align-self-start mt-16 text-left">
           <v-btn
@@ -15,7 +24,7 @@
           </v-btn>
         </v-col>
         <v-col cols="8">
-          <h1 class="display-3">{{ plane.name }}</h1>
+          <h1 class="text-h1 text-shadow">{{ plane.name }}</h1>
         </v-col>
         <v-col cols="2" class="align-self-start mt-16 text-right">
           <v-btn
@@ -52,10 +61,10 @@
                 v-on="on"
               >
                 <div class="pa-1">
-                  <large style="display: block">
+                  <div style="display: block">
                     Virtual
                     <v-icon medium class="pulse"> mdi-rotate-3d</v-icon> Tour
-                  </large>
+                  </div>
                   <small>[External Link]</small>
                 </div>
               </v-btn>
@@ -152,8 +161,13 @@
           >
             Fact Sheet <v-icon small>mdi-download</v-icon>
           </v-btn>
-          <v-btn text to="/catering" target="_blank" rel="noopener noreferrer">
-            Catering <v-icon small>mdi-open-in-new</v-icon>
+          <v-btn
+            text
+            href="/downloads/Menu List.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Catering <v-icon small>mdi-download</v-icon>
           </v-btn>
         </v-col>
       </v-row>
@@ -274,6 +288,11 @@ export default Vue.extend({
   },
 });
 </script>
+<style>
+.translate-image .v-parallax__image {
+  bottom: -120px !important;
+}
+</style>
 <style lang="scss" scoped>
 .external-link small {
   font-size: 60%;
@@ -293,6 +312,9 @@ export default Vue.extend({
   position: absolute;
   top: 2%;
   right: 2%;
+}
+.text-shadow {
+  text-shadow: 2px 2px #29323c;
 }
 @keyframes pulse {
   0% {

@@ -33,8 +33,8 @@
     <v-container class="contact my-16" id="contact">
       <v-row align="center" justify="space-around" class="my-8 text-center">
         <v-col cols="8" class="d-flex flex-column">
-          <h1 class="mb-8">Book Your Next Private Jet Charter Today</h1>
-          <div class="text-justify">
+          <h1 class="text-h2 mb-8">Book Your Next Private Jet Charter Today</h1>
+          <div class="text-center">
             Whether private leisure, business trip or brokerage of an aircraft,
             our team can make your experience in Private Aviation exceptional.
             Please feel free to contact us directly in the way you feel most
@@ -57,7 +57,7 @@
               <v-icon size="85">mdi-phone </v-icon>
             </v-avatar>
             <h2 class="text-uppercase font-weight-light my-4">Phone</h2>
-            <div class="text-button">+49 (0)30 8631 8972</div>
+            <div class="text-h5 my-8">+49 (0)30 8631 8972</div>
           </a>
         </v-col>
         <v-col cols="12" md="4" class="avatar">
@@ -77,7 +77,7 @@
               <v-icon size="85">mdi-map-marker </v-icon>
             </v-avatar>
             <h2 class="text-uppercase font-weight-light my-4">Address</h2>
-            <div class="text-center text-body-1">
+            <div class="text-center text-body-1 my-8">
               <span class="font-weight-bold">
                 Bairline Fluggesellschaft mbH & Co. KG</span
               >
@@ -102,7 +102,7 @@
               <v-icon size="85">mdi-message </v-icon>
             </v-avatar>
             <h2 class="text-uppercase font-weight-light my-4">Email</h2>
-            <div class="text-button">sales@bairline.at</div>
+            <div class="text-h5 my-8">sales@bairline.at</div>
           </a>
         </v-col>
       </v-row>

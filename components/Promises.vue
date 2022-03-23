@@ -5,33 +5,21 @@
       height="400"
       class="text-center"
     >
-      <h1 class="text-h2 black--text font-weight-light">What sets us apart</h1>
+      <h1 class="text-h2 font-weight-light title">What sets us apart</h1>
     </v-parallax>
-    <v-container
-      class="promises my-16"
-      id="promises"
-    >
-      <v-row
-        justify="space-around"
-        class="text-center my-8"
-      >
-        <v-col
-          cols="12"
-          md="6"
-          class="text-justify"
-        >
-          We know that there are hundreds of business jets in all parts of the world.
-          But what most companies forget nowadays, is what Business Aviation is really about.
-          We made it our top priority to give passengers the ability for flexible schedules that
-          fits their needs. Bairline is spending a big effort on your personal demands, giving
-          you the best experience while traveling. Luxurious aircraft will make you feel to
-          be in the right place.
+    <v-container class="promises my-16" id="promises">
+      <v-row justify="space-around" class="text-center my-8">
+        <v-col cols="12" md="6" class="text-justify">
+          We know that there are hundreds of business jets in all parts of the
+          world. But what most companies forget nowadays, is what Business
+          Aviation is really about. We made it our top priority to give
+          passengers the ability for flexible schedules that fits their needs.
+          Bairline is spending a big effort on your personal demands, giving you
+          the best experience while traveling. Luxurious aircraft will make you
+          feel to be in the right place.
         </v-col>
       </v-row>
-      <v-row
-        justify="space-around"
-        class="my-8 py-8"
-      >
+      <v-row justify="space-around" class="my-8 py-8">
         <v-col
           v-for="promise in promises"
           :key="promise.title"
@@ -39,10 +27,7 @@
           md="4"
         >
           <v-hover v-slot="{ hover }">
-            <v-card
-              class="mx-auto"
-              max-width="800"
-            >
+            <v-card class="mx-auto" max-width="800">
               <v-img
                 class="white--text align-end"
                 :src="promise.image"
@@ -56,7 +41,7 @@
                 <v-card
                   v-if="hover"
                   class="v-card--reveal"
-                  style="height: 100%;"
+                  style="height: 100%"
                 >
                   <v-card-text class="pb-0">
                     <p class="display-1 text--primary">
@@ -67,11 +52,7 @@
                     </p>
                   </v-card-text>
                   <v-card-actions class="pt-0">
-                    <v-btn
-                      v-if="promise.link"
-                      :to="promise.link"
-                      nuxt
-                    >
+                    <v-btn v-if="promise.link" :to="promise.link" nuxt>
                       Read more
                     </v-btn>
                   </v-card-actions>
@@ -118,6 +99,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.title {
+  color: #29323c;
+}
 .v-card--reveal {
   bottom: 0;
   opacity: 0.95 !important;

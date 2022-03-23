@@ -20,6 +20,7 @@ const planes = {
       manufactured: 'Manufactured 2020',
       speed: 'Cruise Speed: Mach 0.925 / 1.105 kph'
     },
+    factSheet: '/downloads/Fact sheet OELUB.pdf',
     gallery: [
       require('@/assets/web/Gulfstream G500/SL7_4549-Bearbeitet.jpg'),
       require('@/assets/web/Gulfstream G500/SL7_4573-Bearbeitet.jpg'),
@@ -53,7 +54,7 @@ const planes = {
     tagline: 'The fastest business jet in the world',
     content:
       'You would like to get as fast as possible to your destination? Then this aircraft is definitely the right choice. Flying almost at the speed of sound, the countries below you are changing in no time.',
-    entryImage: require(`@/assets/plane/SLT_0809-Bearbeitet.jpg`),
+    entryImage: require(`@/assets/plane/citationX.jpg`),
     coverImage: require(`@/assets/plane/citationX.jpg`),
     floorplan: require(`@/assets/plane/floorplan_citationX.png`),
     floorplan_night: require(`@/assets/plane/floorplan_citationX_night.png`),

@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    class="ma-0 pa-0"
-  >
+  <v-container fluid class="ma-0 pa-0">
     <v-row class="ma-0 pa-0">
       <v-img
         class="align-stretch background"
@@ -10,20 +7,9 @@
         :src="require('~/assets/images/cockpit.jpg')"
         ref="background"
       >
-        <v-row
-          align="end"
-          justify="center"
-          class="fill-height"
-        >
-          <v-col
-            class="text-center introduction"
-            cols="10"
-            ref="introduction"
-          >
-            <h1>
-              Enjoy the moment. <br>
-              Book your individual private aircraft.
-            </h1>
+        <v-row align="end" justify="center" class="fill-height">
+          <v-col class="text-center introduction" cols="10" ref="introduction">
+            <h1 class="text-h2">Enjoy the difference</h1>
           </v-col>
           <v-col
             class="text-center clickable"
