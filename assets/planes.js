@@ -85,8 +85,8 @@ const planes = {
     tagline: 'The light jet for medium-haul flights',
     content:
       'This aircraft gives you agility at a highly competitive pricing. Quick turnarounds and good performance can be your partner in the air when choosing special destinations.',
-    entryImage: require(`@/assets/web/CJ2/SLT_5975-Bearbeitet.jpg`),
-    coverImage: require(`@/assets/web/CJ2/SLT_5987-Bearbeitet.jpg`),
+    entryImage: require(`@/assets/web/CJ2/SL7_6974-Bearbeitet.jpg`),
+    coverImage: require(`@/assets/web/CJ2/SL7_6971-Bearbeitet.jpg`),
     floorplan: require(`@/assets/plane/floorplan_citationCJ2.png`),
     tourUrl: 'https://jetpano.eu/bairline/fux/tour.html',
     rangeMap: require(`@/assets/maps/map-citationCJ2.gif`),
@@ -102,12 +102,18 @@ const planes = {
     },
     factSheet: '/downloads/Fact sheet OEFUX.pdf',
     gallery: [
-      require('@/assets/web/CJ2/SLT_5919-Bearbeitet.jpg'),
-      require('@/assets/web/CJ2/SLT_5935-Bearbeitet.jpg'),
-      require('@/assets/web/CJ2/SLT_5949-Bearbeitet.jpg'),
-      require('@/assets/web/CJ2/SLT_5953-Bearbeitet.jpg'),
-      require('@/assets/web/CJ2/SLT_5959-Bearbeitet.jpg'),
-      require('@/assets/web/CJ2/SLT_5968-Bearbeitet.jpg')
+      require('@/assets/web/CJ2/SL7_6905-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6908-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6911-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6914-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6917-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6920-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6926-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6932-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6935-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6938-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6944-Bearbeitet.jpg'),
+      require('@/assets/web/CJ2/SL7_6947-Bearbeitet.jpg')
     ]
   }
 }
