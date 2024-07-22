@@ -1,6 +1,9 @@
 {
   "name": "nuxt-demo",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -16,7 +19,7 @@
     "core-js": "^3.9.1",
     "esm": "^3.2.25",
     "firebase": "^8.6.3",
-    "nuxt": "^2.15.3",
+    "nuxt": "^2.18.1",
     "vue-responsive-video-background-player": "1.2.2"
   },
   "devDependencies": {
