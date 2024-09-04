@@ -99,7 +99,6 @@ export default Vue.extend({
       this.images = this.importAll(
         require.context("@/assets/gallery/", true, /\.(jpe?g)/)
       );
-      console.log(this.images);
 
       var imagesRef = this.$fire.storage.ref().child("gallery");
       imagesRef
